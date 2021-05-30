@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="/css/home.css">
+<h1>
+    TODO APP
+</h1>
+<form action="/list" method="POST">
+    <label for="Description">Description</label>
+    <input type="text" name="Description" id="Description" placeholder="What do you need to do?">
+    <label for="Category">Category</label>
+    <select name="Category" id="Category">
+        <option value="Personal">Personal</option>
+        <option value="Work">Work</option>
+        <option value="School">School</option>
+        <option value="Other">Other</option>
+      </select>
+    <label for="dueDate">DUE DATE</label>
+    <input type="date" name="dueDate" id="dueDate">
+    <button type="Sumbit">ADD TASK</button>
+</form>
+<div>
+    <ul>
+        <%for(let i=0;i<task_list.length;i++){%>
+            <li type="none">
+                <input type="checkbox" class="checkbox" id="task<%=i%>" name="type" value="<%=task_list[i]._id%>">
+                <label for="task<%=i%>" class="strikethrough"> 
+                    <div>
+                        <p><%=task_list[i].Description%></p>
+                        <p><%=task_list[i].Category%></p>
+                        <p><%=task_list[i].dueDate%></p>
+                    </div>
+                </label>
+            </li>
+            
+        <%}%>
+    </ul>
+    <a href="" id="going">
+        Delete
+    </a>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/home.js"></script>
